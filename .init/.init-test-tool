@@ -1,0 +1,4 @@
+{
+    "command": "pytest",
+    "working_directory": "/home/kavia/workspace/code-generation/wildlife-monitoring-and-tracking-system-21372-21381/wildlife_tracking_backend"
+}
