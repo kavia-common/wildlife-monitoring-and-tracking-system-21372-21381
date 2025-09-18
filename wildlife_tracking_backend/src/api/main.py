@@ -3,10 +3,12 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 from src.db.connection import ensure_database, close_database, init_indexes, get_settings
+from src.api.sample_data import router as sample_router
 
 openapi_tags = [
     {"name": "health", "description": "Service and database health checks"},
     {"name": "info", "description": "API information and configuration details"},
+    {"name": "sample-data", "description": "Utilities to seed and verify sample/mock data in MongoDB"},
 ]
 
 app = FastAPI(
@@ -94,3 +96,7 @@ def service_info():
         },
         "version": app.version,
     }
+
+
+# Mount routers
+app.include_router(sample_router)
